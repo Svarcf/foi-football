@@ -1,0 +1,39 @@
+entity FoiFootballPlayer {
+    name String required
+    number Integer required
+}
+
+entity FoiFootballPosition {
+    name String required
+}
+
+entity FoiFootballTeam {
+	name String required
+    logo String
+    venueName String required
+    venueCity String required
+}
+
+entity FoiFootballFixture {
+    eventDate LocalDate required
+    round String
+    venue String
+    score String
+}
+
+entity FoiFootballTournament {
+    name String required
+    start LocalDate required
+    end LocalDate required
+}
+
+relationship OneToMany {
+	FoiFootballPosition{players} to FoiFootballPlayer{FoiFootballPosition(name)}
+}
+
+relationship OneToMany {
+	FoiFootballTeam{players} to FoiFootballPlayer{FoiFootballTeam(name)}
+}
+
+dto * with mapstruct
+service * with serviceClass

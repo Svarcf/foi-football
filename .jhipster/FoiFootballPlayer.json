@@ -1,0 +1,46 @@
+{
+    "name": "FoiFootballPlayer",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "number",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "foiFootballPosition",
+            "otherEntityRelationshipName": "players",
+            "relationshipName": "foiFootballPosition",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "foiFootballTeam",
+            "otherEntityRelationshipName": "players",
+            "relationshipName": "foiFootballTeam",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20200202142522",
+    "entityTableName": "foi_football_player",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "footballCRUD",
+    "applications": "*",
+    "microserviceName": "footballCRUD"
+}

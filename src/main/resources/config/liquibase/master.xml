@@ -14,6 +14,12 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200202142522_added_entity_FoiFootballPlayer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200202142523_added_entity_FoiFootballPosition.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200202142524_added_entity_FoiFootballTeam.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200202142525_added_entity_FoiFootballFixture.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200202142526_added_entity_FoiFootballTournament.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200202142522_added_entity_constraints_FoiFootballPlayer.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
