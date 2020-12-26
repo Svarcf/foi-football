@@ -21,7 +21,6 @@ public class FoiFootballTeamDTO implements Serializable {
     @NotNull
     private String venueCity;
 
-
     public Long getId() {
         return id;
     }

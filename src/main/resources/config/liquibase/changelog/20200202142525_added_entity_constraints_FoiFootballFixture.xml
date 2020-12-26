@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity FoiFootballFixture.
+    -->
+    <changeSet id="20200202142525-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tournament_id"
+                                 baseTableName="foi_football_fixture"
+                                 constraintName="fk_foi_football_fixture_tournament_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="foi_football_tournament"/>
+
+        <addForeignKeyConstraint baseColumnNames="home_team_id"
+                                 baseTableName="foi_football_fixture"
+                                 constraintName="fk_foi_football_fixture_home_team_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="foi_football_team"/>
+
+        <addForeignKeyConstraint baseColumnNames="away_team_id"
+                                 baseTableName="foi_football_fixture"
+                                 constraintName="fk_foi_football_fixture_away_team_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="foi_football_team"/>
+
+    </changeSet>
+</databaseChangeLog>

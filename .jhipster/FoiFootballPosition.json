@@ -13,7 +13,7 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "foiFootballPlayer",
-            "otherEntityRelationshipName": "foiFootballPosition",
+            "otherEntityRelationshipName": "position",
             "relationshipName": "players"
         }
     ],

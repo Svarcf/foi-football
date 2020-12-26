@@ -1,4 +1,5 @@
 package com.github.svarcf.football.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -34,6 +35,18 @@ public class FoiFootballFixture implements Serializable {
 
     @Column(name = "score")
     private String score;
+
+    @ManyToOne
+    @JsonIgnoreProperties("fixtures")
+    private FoiFootballTournament tournament;
+
+    @ManyToOne
+    @JsonIgnoreProperties("fixturesHomes")
+    private FoiFootballTeam homeTeam;
+
+    @ManyToOne
+    @JsonIgnoreProperties("fixturesAways")
+    private FoiFootballTeam awayTeam;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -94,6 +107,45 @@ public class FoiFootballFixture implements Serializable {
 
     public void setScore(String score) {
         this.score = score;
+    }
+
+    public FoiFootballTournament getTournament() {
+        return tournament;
+    }
+
+    public FoiFootballFixture tournament(FoiFootballTournament foiFootballTournament) {
+        this.tournament = foiFootballTournament;
+        return this;
+    }
+
+    public void setTournament(FoiFootballTournament foiFootballTournament) {
+        this.tournament = foiFootballTournament;
+    }
+
+    public FoiFootballTeam getHomeTeam() {
+        return homeTeam;
+    }
+
+    public FoiFootballFixture homeTeam(FoiFootballTeam foiFootballTeam) {
+        this.homeTeam = foiFootballTeam;
+        return this;
+    }
+
+    public void setHomeTeam(FoiFootballTeam foiFootballTeam) {
+        this.homeTeam = foiFootballTeam;
+    }
+
+    public FoiFootballTeam getAwayTeam() {
+        return awayTeam;
+    }
+
+    public FoiFootballFixture awayTeam(FoiFootballTeam foiFootballTeam) {
+        this.awayTeam = foiFootballTeam;
+        return this;
+    }
+
+    public void setAwayTeam(FoiFootballTeam foiFootballTeam) {
+        this.awayTeam = foiFootballTeam;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

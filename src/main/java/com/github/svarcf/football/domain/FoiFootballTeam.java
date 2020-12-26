@@ -38,9 +38,17 @@ public class FoiFootballTeam implements Serializable {
     @Column(name = "venue_city", nullable = false)
     private String venueCity;
 
-    @OneToMany(mappedBy = "foiFootballTeam")
+    @OneToMany(mappedBy = "team")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FoiFootballPlayer> players = new HashSet<>();
+
+    @OneToMany(mappedBy = "homeTeam")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<FoiFootballFixture> fixturesHomes = new HashSet<>();
+
+    @OneToMany(mappedBy = "awayTeam")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<FoiFootballFixture> fixturesAways = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -114,19 +122,70 @@ public class FoiFootballTeam implements Serializable {
 
     public FoiFootballTeam addPlayers(FoiFootballPlayer foiFootballPlayer) {
         this.players.add(foiFootballPlayer);
-        foiFootballPlayer.setFoiFootballTeam(this);
+        foiFootballPlayer.setTeam(this);
         return this;
     }
 
     public FoiFootballTeam removePlayers(FoiFootballPlayer foiFootballPlayer) {
         this.players.remove(foiFootballPlayer);
-        foiFootballPlayer.setFoiFootballTeam(null);
+        foiFootballPlayer.setTeam(null);
         return this;
     }
 
     public void setPlayers(Set<FoiFootballPlayer> foiFootballPlayers) {
         this.players = foiFootballPlayers;
     }
+
+    public Set<FoiFootballFixture> getFixturesHomes() {
+        return fixturesHomes;
+    }
+
+    public FoiFootballTeam fixturesHomes(Set<FoiFootballFixture> foiFootballFixtures) {
+        this.fixturesHomes = foiFootballFixtures;
+        return this;
+    }
+
+    public FoiFootballTeam addFixturesHome(FoiFootballFixture foiFootballFixture) {
+        this.fixturesHomes.add(foiFootballFixture);
+        foiFootballFixture.setHomeTeam(this);
+        return this;
+    }
+
+    public FoiFootballTeam removeFixturesHome(FoiFootballFixture foiFootballFixture) {
+        this.fixturesHomes.remove(foiFootballFixture);
+        foiFootballFixture.setHomeTeam(null);
+        return this;
+    }
+
+    public void setFixturesHomes(Set<FoiFootballFixture> foiFootballFixtures) {
+        this.fixturesHomes = foiFootballFixtures;
+    }
+
+    public Set<FoiFootballFixture> getFixturesAways() {
+        return fixturesAways;
+    }
+
+    public FoiFootballTeam fixturesAways(Set<FoiFootballFixture> foiFootballFixtures) {
+        this.fixturesAways = foiFootballFixtures;
+        return this;
+    }
+
+    public FoiFootballTeam addFixturesAway(FoiFootballFixture foiFootballFixture) {
+        this.fixturesAways.add(foiFootballFixture);
+        foiFootballFixture.setAwayTeam(this);
+        return this;
+    }
+
+    public FoiFootballTeam removeFixturesAway(FoiFootballFixture foiFootballFixture) {
+        this.fixturesAways.remove(foiFootballFixture);
+        foiFootballFixture.setAwayTeam(null);
+        return this;
+    }
+
+    public void setFixturesAways(Set<FoiFootballFixture> foiFootballFixtures) {
+        this.fixturesAways = foiFootballFixtures;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

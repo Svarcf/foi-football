@@ -23,7 +23,20 @@
             ]
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballFixture",
+            "otherEntityRelationshipName": "tournament",
+            "relationshipName": "fixtures"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballTable",
+            "otherEntityRelationshipName": "tournament",
+            "relationshipName": "tables"
+        }
+    ],
     "changelogDate": "20200202142526",
     "entityTableName": "foi_football_tournament",
     "dto": "mapstruct",

@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <property name="autoIncrement" value="true"/>
+        <property name="autoIncrement" value="true"/>
 
     <!--
         Added the entity FoiFootballPlayer.
@@ -17,16 +17,16 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" />
             </column>
             <column name="number" type="integer">
-                <constraints nullable="false"/>
+                <constraints nullable="false" />
             </column>
-            <column name="foi_football_position_id" type="bigint">
-                <constraints nullable="true"/>
+            <column name="position_id" type="bigint">
+                <constraints nullable="true" />
             </column>
-            <column name="foi_football_team_id" type="bigint">
-                <constraints nullable="true"/>
+            <column name="team_id" type="bigint">
+                <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
@@ -47,9 +47,9 @@
     -->
     <changeSet id="20200202142522-1-data" author="jhipster" context="faker">
         <loadData
-            file="config/liquibase/fake-data/foi_football_player.csv"
-            separator=";"
-            tableName="foi_football_player">
+                  file="config/liquibase/fake-data/foi_football_player.csv"
+                  separator=";"
+                  tableName="foi_football_player">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
             <column name="number" type="numeric"/>

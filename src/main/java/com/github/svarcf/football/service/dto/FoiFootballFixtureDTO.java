@@ -21,6 +21,12 @@ public class FoiFootballFixtureDTO implements Serializable {
     private String score;
 
 
+    private Long tournamentId;
+
+    private Long homeTeamId;
+
+    private Long awayTeamId;
+
     public Long getId() {
         return id;
     }
@@ -61,6 +67,30 @@ public class FoiFootballFixtureDTO implements Serializable {
         this.score = score;
     }
 
+    public Long getTournamentId() {
+        return tournamentId;
+    }
+
+    public void setTournamentId(Long foiFootballTournamentId) {
+        this.tournamentId = foiFootballTournamentId;
+    }
+
+    public Long getHomeTeamId() {
+        return homeTeamId;
+    }
+
+    public void setHomeTeamId(Long foiFootballTeamId) {
+        this.homeTeamId = foiFootballTeamId;
+    }
+
+    public Long getAwayTeamId() {
+        return awayTeamId;
+    }
+
+    public void setAwayTeamId(Long foiFootballTeamId) {
+        this.awayTeamId = foiFootballTeamId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -90,6 +120,9 @@ public class FoiFootballFixtureDTO implements Serializable {
             ", round='" + getRound() + "'" +
             ", venue='" + getVenue() + "'" +
             ", score='" + getScore() + "'" +
+            ", tournament=" + getTournamentId() +
+            ", homeTeam=" + getHomeTeamId() +
+            ", awayTeam=" + getAwayTeamId() +
             "}";
     }
 }

@@ -31,8 +31,26 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "foiFootballPlayer",
-            "otherEntityRelationshipName": "foiFootballTeam",
+            "otherEntityRelationshipName": "team",
             "relationshipName": "players"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballFixture",
+            "otherEntityRelationshipName": "homeTeam",
+            "relationshipName": "fixturesHome"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballFixture",
+            "otherEntityRelationshipName": "awayTeam",
+            "relationshipName": "fixturesAway"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foiFootballTable",
+            "otherEntityRelationshipName": "team",
+            "relationshipName": "tables"
         }
     ],
     "changelogDate": "20200202142524",

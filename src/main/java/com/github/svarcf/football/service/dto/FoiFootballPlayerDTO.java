@@ -16,14 +16,9 @@ public class FoiFootballPlayerDTO implements Serializable {
     @NotNull
     private Integer number;
 
+    private Long positionId;
 
-    private Long foiFootballPositionId;
-
-    private String foiFootballPositionName;
-
-    private Long foiFootballTeamId;
-
-    private String foiFootballTeamName;
+    private Long teamId;
 
     public Long getId() {
         return id;
@@ -49,36 +44,20 @@ public class FoiFootballPlayerDTO implements Serializable {
         this.number = number;
     }
 
-    public Long getFoiFootballPositionId() {
-        return foiFootballPositionId;
+    public Long getPositionId() {
+        return positionId;
     }
 
-    public void setFoiFootballPositionId(Long foiFootballPositionId) {
-        this.foiFootballPositionId = foiFootballPositionId;
+    public void setPositionId(Long foiFootballPositionId) {
+        this.positionId = foiFootballPositionId;
     }
 
-    public String getFoiFootballPositionName() {
-        return foiFootballPositionName;
+    public Long getTeamId() {
+        return teamId;
     }
 
-    public void setFoiFootballPositionName(String foiFootballPositionName) {
-        this.foiFootballPositionName = foiFootballPositionName;
-    }
-
-    public Long getFoiFootballTeamId() {
-        return foiFootballTeamId;
-    }
-
-    public void setFoiFootballTeamId(Long foiFootballTeamId) {
-        this.foiFootballTeamId = foiFootballTeamId;
-    }
-
-    public String getFoiFootballTeamName() {
-        return foiFootballTeamName;
-    }
-
-    public void setFoiFootballTeamName(String foiFootballTeamName) {
-        this.foiFootballTeamName = foiFootballTeamName;
+    public void setTeamId(Long foiFootballTeamId) {
+        this.teamId = foiFootballTeamId;
     }
 
     @Override
@@ -108,10 +87,8 @@ public class FoiFootballPlayerDTO implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", number=" + getNumber() +
-            ", foiFootballPosition=" + getFoiFootballPositionId() +
-            ", foiFootballPosition='" + getFoiFootballPositionName() + "'" +
-            ", foiFootballTeam=" + getFoiFootballTeamId() +
-            ", foiFootballTeam='" + getFoiFootballTeamName() + "'" +
+            ", position=" + getPositionId() +
+            ", team=" + getTeamId() +
             "}";
     }
 }

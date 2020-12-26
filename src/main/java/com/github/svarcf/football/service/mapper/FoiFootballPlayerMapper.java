@@ -11,14 +11,12 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {FoiFootballPositionMapper.class, FoiFootballTeamMapper.class})
 public interface FoiFootballPlayerMapper extends EntityMapper<FoiFootballPlayerDTO, FoiFootballPlayer> {
 
-    @Mapping(source = "foiFootballPosition.id", target = "foiFootballPositionId")
-    @Mapping(source = "foiFootballPosition.name", target = "foiFootballPositionName")
-    @Mapping(source = "foiFootballTeam.id", target = "foiFootballTeamId")
-    @Mapping(source = "foiFootballTeam.name", target = "foiFootballTeamName")
+    @Mapping(source = "position.id", target = "positionId")
+    @Mapping(source = "team.id", target = "teamId")
     FoiFootballPlayerDTO toDto(FoiFootballPlayer foiFootballPlayer);
 
-    @Mapping(source = "foiFootballPositionId", target = "foiFootballPosition")
-    @Mapping(source = "foiFootballTeamId", target = "foiFootballTeam")
+    @Mapping(source = "positionId", target = "position")
+    @Mapping(source = "teamId", target = "team")
     FoiFootballPlayer toEntity(FoiFootballPlayerDTO foiFootballPlayerDTO);
 
     default FoiFootballPlayer fromId(Long id) {

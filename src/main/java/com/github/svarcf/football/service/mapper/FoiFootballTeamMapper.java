@@ -14,6 +14,10 @@ public interface FoiFootballTeamMapper extends EntityMapper<FoiFootballTeamDTO, 
 
     @Mapping(target = "players", ignore = true)
     @Mapping(target = "removePlayers", ignore = true)
+    @Mapping(target = "fixturesHomes", ignore = true)
+    @Mapping(target = "removeFixturesHome", ignore = true)
+    @Mapping(target = "fixturesAways", ignore = true)
+    @Mapping(target = "removeFixturesAway", ignore = true)
     FoiFootballTeam toEntity(FoiFootballTeamDTO foiFootballTeamDTO);
 
     default FoiFootballTeam fromId(Long id) {

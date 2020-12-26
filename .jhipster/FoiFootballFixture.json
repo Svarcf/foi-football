@@ -21,7 +21,29 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "foiFootballTournament",
+            "otherEntityRelationshipName": "fixtures",
+            "relationshipName": "tournament",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "foiFootballTeam",
+            "otherEntityRelationshipName": "fixturesHome",
+            "relationshipName": "homeTeam",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "foiFootballTeam",
+            "otherEntityRelationshipName": "fixturesAway",
+            "relationshipName": "awayTeam",
+            "otherEntityField": "id"
+        }
+    ],
     "changelogDate": "20200202142525",
     "entityTableName": "foi_football_fixture",
     "dto": "mapstruct",

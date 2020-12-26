@@ -1,15 +1,29 @@
 {
-    "name": "FoiFootballPlayer",
+    "name": "FoiFootballTable",
     "fields": [
         {
-            "fieldName": "name",
-            "fieldType": "String",
+            "fieldName": "wins",
+            "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "number",
+            "fieldName": "draws",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "loses",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "points",
             "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
@@ -19,21 +33,21 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "otherEntityName": "foiFootballPosition",
-            "otherEntityRelationshipName": "players",
-            "relationshipName": "position",
+            "otherEntityName": "foiFootballTournament",
+            "otherEntityRelationshipName": "tables",
+            "relationshipName": "tournament",
             "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",
             "otherEntityName": "foiFootballTeam",
-            "otherEntityRelationshipName": "players",
+            "otherEntityRelationshipName": "tables",
             "relationshipName": "team",
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20200202142522",
-    "entityTableName": "foi_football_player",
+    "changelogDate": "20201213154439",
+    "entityTableName": "foi_football_table",
     "dto": "mapstruct",
     "pagination": "no",
     "service": "serviceClass",

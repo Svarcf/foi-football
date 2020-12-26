@@ -12,6 +12,9 @@ import org.mapstruct.*;
 public interface FoiFootballTournamentMapper extends EntityMapper<FoiFootballTournamentDTO, FoiFootballTournament> {
 
 
+    @Mapping(target = "fixtures", ignore = true)
+    @Mapping(target = "removeFixtures", ignore = true)
+    FoiFootballTournament toEntity(FoiFootballTournamentDTO foiFootballTournamentDTO);
 
     default FoiFootballTournament fromId(Long id) {
         if (id == null) {

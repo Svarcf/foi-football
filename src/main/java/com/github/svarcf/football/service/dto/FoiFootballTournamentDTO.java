@@ -20,7 +20,6 @@ public class FoiFootballTournamentDTO implements Serializable {
     @NotNull
     private LocalDate end;
 
-
     public Long getId() {
         return id;
     }

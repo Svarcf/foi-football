@@ -28,6 +28,15 @@
             <column name="score" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="tournament_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="home_team_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="away_team_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
     </changeSet>

@@ -27,7 +27,7 @@ public class FoiFootballPosition implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "foiFootballPosition")
+    @OneToMany(mappedBy = "position")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<FoiFootballPlayer> players = new HashSet<>();
 
@@ -64,13 +64,13 @@ public class FoiFootballPosition implements Serializable {
 
     public FoiFootballPosition addPlayers(FoiFootballPlayer foiFootballPlayer) {
         this.players.add(foiFootballPlayer);
-        foiFootballPlayer.setFoiFootballPosition(this);
+        foiFootballPlayer.setPosition(this);
         return this;
     }
 
     public FoiFootballPosition removePlayers(FoiFootballPlayer foiFootballPlayer) {
         this.players.remove(foiFootballPlayer);
-        foiFootballPlayer.setFoiFootballPosition(null);
+        foiFootballPlayer.setPosition(null);
         return this;
     }
 

@@ -32,11 +32,11 @@ public class FoiFootballPlayer implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("players")
-    private FoiFootballPosition foiFootballPosition;
+    private FoiFootballPosition position;
 
     @ManyToOne
     @JsonIgnoreProperties("players")
-    private FoiFootballTeam foiFootballTeam;
+    private FoiFootballTeam team;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -73,30 +73,30 @@ public class FoiFootballPlayer implements Serializable {
         this.number = number;
     }
 
-    public FoiFootballPosition getFoiFootballPosition() {
-        return foiFootballPosition;
+    public FoiFootballPosition getPosition() {
+        return position;
     }
 
-    public FoiFootballPlayer foiFootballPosition(FoiFootballPosition foiFootballPosition) {
-        this.foiFootballPosition = foiFootballPosition;
+    public FoiFootballPlayer position(FoiFootballPosition foiFootballPosition) {
+        this.position = foiFootballPosition;
         return this;
     }
 
-    public void setFoiFootballPosition(FoiFootballPosition foiFootballPosition) {
-        this.foiFootballPosition = foiFootballPosition;
+    public void setPosition(FoiFootballPosition foiFootballPosition) {
+        this.position = foiFootballPosition;
     }
 
-    public FoiFootballTeam getFoiFootballTeam() {
-        return foiFootballTeam;
+    public FoiFootballTeam getTeam() {
+        return team;
     }
 
-    public FoiFootballPlayer foiFootballTeam(FoiFootballTeam foiFootballTeam) {
-        this.foiFootballTeam = foiFootballTeam;
+    public FoiFootballPlayer team(FoiFootballTeam foiFootballTeam) {
+        this.team = foiFootballTeam;
         return this;
     }
 
-    public void setFoiFootballTeam(FoiFootballTeam foiFootballTeam) {
-        this.foiFootballTeam = foiFootballTeam;
+    public void setTeam(FoiFootballTeam foiFootballTeam) {
+        this.team = foiFootballTeam;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

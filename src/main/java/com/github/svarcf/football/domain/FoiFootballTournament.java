@@ -7,6 +7,8 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A FoiFootballTournament.
@@ -33,6 +35,10 @@ public class FoiFootballTournament implements Serializable {
     @NotNull
     @Column(name = "end", nullable = false)
     private LocalDate end;
+
+    @OneToMany(mappedBy = "tournament")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<FoiFootballFixture> fixtures = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -80,6 +86,31 @@ public class FoiFootballTournament implements Serializable {
 
     public void setEnd(LocalDate end) {
         this.end = end;
+    }
+
+    public Set<FoiFootballFixture> getFixtures() {
+        return fixtures;
+    }
+
+    public FoiFootballTournament fixtures(Set<FoiFootballFixture> foiFootballFixtures) {
+        this.fixtures = foiFootballFixtures;
+        return this;
+    }
+
+    public FoiFootballTournament addFixtures(FoiFootballFixture foiFootballFixture) {
+        this.fixtures.add(foiFootballFixture);
+        foiFootballFixture.setTournament(this);
+        return this;
+    }
+
+    public FoiFootballTournament removeFixtures(FoiFootballFixture foiFootballFixture) {
+        this.fixtures.remove(foiFootballFixture);
+        foiFootballFixture.setTournament(null);
+        return this;
+    }
+
+    public void setFixtures(Set<FoiFootballFixture> foiFootballFixtures) {
+        this.fixtures = foiFootballFixtures;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

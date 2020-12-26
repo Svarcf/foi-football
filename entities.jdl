@@ -27,12 +27,39 @@ entity FoiFootballTournament {
     end LocalDate required
 }
 
-relationship OneToMany {
-	FoiFootballPosition{players} to FoiFootballPlayer{FoiFootballPosition(name)}
+entity FoiFootballTable {
+    wins Integer required
+    draws Integer required
+    loses Integer required
+    points Integer required
 }
 
 relationship OneToMany {
-	FoiFootballTeam{players} to FoiFootballPlayer{FoiFootballTeam(name)}
+	FoiFootballPosition{players} to FoiFootballPlayer{position}
+}
+
+relationship OneToMany {
+	FoiFootballTeam{players} to FoiFootballPlayer{team}
+}
+
+relationship OneToMany {
+	FoiFootballTournament{fixtures} to FoiFootballFixture{tournament}
+}
+
+relationship OneToMany {
+	FoiFootballTeam{fixturesHome} to FoiFootballFixture{homeTeam}
+}
+
+relationship OneToMany {
+    FoiFootballTeam{fixturesAway} to FoiFootballFixture{awayTeam}
+}
+
+relationship OneToMany {
+	 FoiFootballTournament{tables} to FoiFootballTable{tournament}
+}
+
+relationship OneToMany {
+	 FoiFootballTeam{tables} to FoiFootballTable{team}
 }
 
 dto * with mapstruct
