@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.loadbalancer.RestTemplateCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -43,6 +44,10 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
             .authorizeRequests()
+            .antMatchers(HttpMethod.GET,"/api/foi-football-tournaments").permitAll()
+            .antMatchers(HttpMethod.GET,"/api/foi-football-fixtures").permitAll()
+            .antMatchers(HttpMethod.GET,"/api/foi-football-tables/{\\d+}").permitAll()
+            .antMatchers(HttpMethod.GET,"/api/foi-football-teams").permitAll()
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
